@@ -6134,7 +6134,7 @@ components:
           type: string
       type: object
     DowntimeScheduleOneTimeCreateUpdateRequest:
-      additionalProperties: {}
+      additionalProperties: false
       description: A one-time downtime definition.
       properties:
         end:
@@ -6269,6 +6269,7 @@ components:
       - recurrences
       type: object
     DowntimeScheduleRecurrencesUpdateRequest:
+      additionalProperties: false
       description: A recurring downtime schedule definition.
       properties:
         recurrences:
