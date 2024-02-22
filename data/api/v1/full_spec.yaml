@@ -17101,6 +17101,8 @@ components:
       - estimated_rum_usage_attribution_percentage
       - asm_serverless_traced_invocations_usage
       - asm_serverless_traced_invocations_percentage
+      - error_tracking_usage
+      - error_tracking_percentage
       type: string
       x-enum-varnames:
       - API_PERCENTAGE
@@ -17141,6 +17143,8 @@ components:
       - ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE
       - ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE
       - ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE
+      - ERROR_TRACKING_USAGE
+      - ERROR_TRACKING_PERCENTAGE
     UsageAttributionSupportedMetrics:
       description: Supported fields for usage attribution requests (valid requests
         contain one or more metrics, or `*` for all).
@@ -17193,6 +17197,8 @@ components:
       - estimated_rum_usage_attribution_percentage
       - asm_serverless_traced_invocations_usage
       - asm_serverless_traced_invocations_percentage
+      - error_tracking_usage
+      - error_tracking_percentage
       - '*'
       type: string
       x-enum-varnames:
@@ -17244,6 +17250,8 @@ components:
       - ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE
       - ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE
       - ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE
+      - ERROR_TRACKING_USAGE
+      - ERROR_TRACKING_PERCENTAGE
       - ALL
     UsageAttributionTagNames:
       additionalProperties:
@@ -19049,6 +19057,11 @@ components:
             given date and given organization.
           format: int64
           type: integer
+        cloud_cost_management_gcp_host_count_avg:
+          description: Host count average of Cloud Cost Management for GCP for the
+            given date and given organization.
+          format: int64
+          type: integer
         cloud_cost_management_host_count_avg:
           description: Host count average of Cloud Cost Management for all cloud providers
             for the given date and given organization.
@@ -19196,6 +19209,11 @@ components:
             over all hours in the current date for all organizations.
           format: int64
           type: integer
+        error_tracking_events_sum:
+          description: Shows the sum of all Error Tracking events over all hours in
+            the current date for the given org.
+          format: int64
+          type: integer
         fargate_tasks_count_avg:
           description: Shows the high-watermark of all Fargate tasks over all hours
             in the current date for all organizations.
@@ -19204,6 +19222,31 @@ components:
         fargate_tasks_count_hwm:
           description: Shows the average of all Fargate tasks over all hours in the
             current date for all organizations.
+          format: int64
+          type: integer
+        flex_logs_compute_large_avg:
+          description: Shows the average number of Flex Logs Compute Large Instances
+            over all hours in the current date for the given org.
+          format: int64
+          type: integer
+        flex_logs_compute_medium_avg:
+          description: Shows the average number of Flex Logs Compute Medium Instances
+            over all hours in the current date for the given org.
+          format: int64
+          type: integer
+        flex_logs_compute_small_avg:
+          description: Shows the average number of Flex Logs Compute Small Instances
+            over all hours in the current date for the given org.
+          format: int64
+          type: integer
+        flex_logs_compute_xsmall_avg:
+          description: Shows the average number of Flex Logs Compute Extra Small Instances
+            over all hours in the current date for the given org.
+          format: int64
+          type: integer
+        flex_stored_logs_avg:
+          description: Shows the average of all Flex Stored Logs over all hours in
+            the current date for the given org.
           format: int64
           type: integer
         forwarding_events_bytes_sum:
@@ -19585,6 +19628,11 @@ components:
             given date and given org.
           format: int64
           type: integer
+        cloud_cost_management_gcp_host_count_avg:
+          description: Host count average of Cloud Cost Management for GCP for the
+            given date and given org.
+          format: int64
+          type: integer
         cloud_cost_management_host_count_avg:
           description: Host count average of Cloud Cost Management for all cloud providers
             for the given date and given org.
@@ -19738,6 +19786,11 @@ components:
             queries over all hours in the current month for the given org.
           format: int64
           type: integer
+        error_tracking_events_sum:
+          description: Shows the sum of all Error Tracking events over all hours in
+            the current date for the given org.
+          format: int64
+          type: integer
         fargate_tasks_count_avg:
           description: The average task count for Fargate.
           format: int64
@@ -19745,6 +19798,31 @@ components:
         fargate_tasks_count_hwm:
           description: Shows the high-water mark of all Fargate tasks over all hours
             in the current date for the given org.
+          format: int64
+          type: integer
+        flex_logs_compute_large_avg:
+          description: Shows the average number of Flex Logs Compute Large Instances
+            over all hours in the current date for the given org.
+          format: int64
+          type: integer
+        flex_logs_compute_medium_avg:
+          description: Shows the average number of Flex Logs Compute Medium Instances
+            over all hours in the current date for the given org.
+          format: int64
+          type: integer
+        flex_logs_compute_small_avg:
+          description: Shows the average number of Flex Logs Compute Small Instances
+            over all hours in the current date for the given org.
+          format: int64
+          type: integer
+        flex_logs_compute_xsmall_avg:
+          description: Shows the average number of Flex Logs Compute Extra Small Instances
+            over all hours in the current date for the given org.
+          format: int64
+          type: integer
+        flex_stored_logs_avg:
+          description: Shows the average of all Flex Stored Logs over all hours in
+            the current date for the given org.
           format: int64
           type: integer
         forwarding_events_bytes_sum:
@@ -20138,6 +20216,11 @@ components:
             Azure.
           format: int64
           type: integer
+        cloud_cost_management_gcp_host_count_avg_sum:
+          description: Sum of the host count average for Cloud Cost Management for
+            GCP.
+          format: int64
+          type: integer
         cloud_cost_management_host_count_avg_sum:
           description: Sum of the host count average for Cloud Cost Management for
             all cloud providers.
@@ -20294,6 +20377,11 @@ components:
             organizations.
           format: date-time
           type: string
+        error_tracking_events_agg_sum:
+          description: Shows the sum of all Error Tracking events over all hours in
+            the current months for all organizations.
+          format: int64
+          type: integer
         fargate_tasks_count_avg_sum:
           description: Shows the average of all Fargate tasks over all hours in the
             current months for all organizations.
@@ -20302,6 +20390,31 @@ components:
         fargate_tasks_count_hwm_sum:
           description: Shows the sum of the high-water marks of all Fargate tasks
             over all hours in the current months for all organizations.
+          format: int64
+          type: integer
+        flex_logs_compute_large_avg_sum:
+          description: Shows the average number of Flex Logs Compute Large Instances
+            over all hours in the current months for all organizations.
+          format: int64
+          type: integer
+        flex_logs_compute_medium_avg_sum:
+          description: Shows the average number of Flex Logs Compute Medium Instances
+            over all hours in the current months for all organizations.
+          format: int64
+          type: integer
+        flex_logs_compute_small_avg_sum:
+          description: Shows the average number of Flex Logs Compute Small Instances
+            over all hours in the current months for all organizations.
+          format: int64
+          type: integer
+        flex_logs_compute_xsmall_avg_sum:
+          description: Shows the average number of Flex Logs Compute Extra Small Instances
+            over all hours in the current months for all organizations.
+          format: int64
+          type: integer
+        flex_stored_logs_avg_sum:
+          description: Shows the average of all Flex Stored Logs over all hours in
+            the current months for all organizations.
           format: int64
           type: integer
         forwarding_events_bytes_agg_sum:
